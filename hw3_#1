@@ -1,0 +1,11 @@
+#defining fuction to calculate the power
+def calculating_the_power (x, y): 
+    result = 1 
+    for _ in range(y):
+        result *= x 
+    return result 
+        
+x = 2 
+y = 3
+result = calculating_the_power (x,y)
+print(result) #result from taking the power of x and y 

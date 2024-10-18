@@ -1,0 +1,10 @@
+#defining fuction to find the max and min temps
+def temperatureRange (readings) : 
+    minimum_temp = min(readings)
+    maximum_temp = max(readings)
+    return (minimum_temp, maximum_temp)
+
+#knowing if its the weekend or not
+readings = [15, 14, 17, 20, 23, 28, 20]
+result = temperatureRange(readings)
+print(result)

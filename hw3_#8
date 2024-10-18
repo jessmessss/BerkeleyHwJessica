@@ -1,0 +1,13 @@
+#defining fuction that puts intergers as inputs and their sums as an output
+def digital_root (num):
+    digit_sum = 0 
+    while num > 0:
+        digit_sum += num % 10 #does a loop of taking the sum of the last digit 
+        num //=10
+
+    return digit_sum 
+
+#calculate digital root
+num = 2468
+result = digital_root(num)
+print(result)

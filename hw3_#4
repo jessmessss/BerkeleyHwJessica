@@ -1,0 +1,9 @@
+def fuel_efficiency(distance, fuel):
+    return(distance / fuel)
+
+#checking for fuel efficiency: 
+distance = 70 #miles
+fuel = 21.5 #gallons
+
+result = fuel_efficiency(distance,fuel)
+print(result)

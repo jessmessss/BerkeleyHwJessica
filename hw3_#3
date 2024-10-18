@@ -1,0 +1,6 @@
+def isWeekend(day):
+    return day == 6 or day == 7 
+# knowing if its a weekend
+day = 6
+result = isWeekend(day)
+print(result)
