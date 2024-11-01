@@ -1,0 +1,59 @@
+# 2.1 Making a List Variable
+AmountofAssignmentsPerWeek = list(range(21)) 
+#i made the mistake of making the range to 20 instead of 21 because i didnt account for the inclusion of 0, I then made the range 21 and it worked
+print(AmountofAssignmentsPerWeek)
+
+#2.2 Working with List Elements 
+def AmountofAssignmentsPerWeek_squared(original_list):
+    squared_list = [ x ** 2 for x in original_list]
+    #made mistake of naming conventions, fixed by making "sqaured_list" the function that combines list and the "**2"
+    return squared_list
+
+squared_assignments_list = AmountofAssignmentsPerWeek_squared(AmountofAssignmentsPerWeek)
+print("squared_list" , squared_assignments_list)
+#i put print squared list without defining a function so it just printed out the name "squared list" only, fixed it by defining it at the end in relation to the function
+
+#2.3 Slicing
+def first_fifteen_elements(squared_list):
+    return squared_list[:15]
+#made a similar mistake in not defining what to print out, fixed it by defining it and relating it to the function that was made earlier 
+fifteen_assigments = first_fifteen_elements( squared_assignments_list)
+print("the assignments that are physics assignents:", fifteen_assigments)
+
+#2.4 Striding 
+def every_fifth_element(squared_list):
+    return squared_list[4::5]
+#made the mistake of not putting the start of when the skipping should start. i fixed it by adding the 4 before the "::"
+fifth_element_on_list = every_fifth_element(squared_assignments_list)
+print ("return of every 5th element from the list:",fifth_element_on_list)
+
+#2.5 Slicing and Striding -  slices last 30 elements, retunrs every 3rd element in reverse
+def fancy_function(squared_list):
+    slicing_striding = squared_list[-1:-31:-3]
+    #forgot the ":" next to the 30, fixed it by adding it which allowed me to properly slice the last 30 elements"
+#made the "::-1" to account for the 3rd element to be returned in reverse spcefically instead from foward and on 
+#did the "::" in the wrong order
+#changed from 30 to 31 to account for the proper start of the function if i want the last 30 elements 
+    return slicing_striding
+
+fancy_slicing_striding = fancy_function(squared_assignments_list)
+print ("fancy function outcome:", fancy_slicing_striding)
+
+#3 3D List 
+#3.1 Creating a 5x5 2d list 
+def creating_2d_list():
+    matrix = [] #outcome never showed due to syntax issue, fixed by addig the equal sign
+    count = 1
+    #did the count with "[]" which gave an error message, fixed it by equaling count with 1 
+
+    for i in range(5): # the range of the matrix which is five.
+    #forgot to add semi colon to the loop, fixed syntax error by adding it 
+        row = [] # did the "[]" instead of of equaling the row to a new one
+        for j in range(5): #forgot to add ":", fixed error by adding it.
+            row.append(count)
+            count += 1
+        matrix.append(row)
+    return matrix
+
+matrix = creating_2d_list()
+print("5x5 matrix:", matrix)
