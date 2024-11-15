@@ -1,0 +1,22 @@
+import matplotlib.pyplot as plt 
+import numpy as np
+
+
+np.random.seed(42)
+random_list_1 = np.random.randint(0, 101, 40)
+random_list_2 = np.random.randint(0, 101, 40)
+
+plt.figure(figsize=(10, 6))
+
+
+plt.plot(random_list_1, label=' orange list 1' , color='orange', linewidth=10)
+plt.plot(random_list_2, label='red list 2' , color='red', linestyle='--')
+
+plt.xlabel('index')
+plt.ylabel('random values')
+plt.title('randomized plot')
+plt.legend()
+
+plt.grid(True)
+plt.show()
+
