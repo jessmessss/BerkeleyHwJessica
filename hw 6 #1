@@ -1,0 +1,23 @@
+#1
+import numpy as np 
+import matplotlib.pyplot as plt 
+
+def sinusoid(x, A, w):
+    """
+    returns a sinusoid = A * sin(w * x)
+    """
+    return A * np.sin(w * x)
+
+x = np.linspace(0, 2 * np.pi, 1000)
+
+amplitudes = [1, 2, 3, 4, 5]
+frequencies = [1, 2, 3, 4, 5]
+
+plt.figure(figsize=(10, 6))
+
+for A in amplitudes:
+     for w in frequencies: 
+        y = sinusoid(x, A, w)
+        plt.plot(x, y, label=f' A={A}, w={w}')
+plt.show()
+
