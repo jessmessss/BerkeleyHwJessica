@@ -1,0 +1,42 @@
+#1.1
+import pandas as pd
+
+air_quality_data_set = pd.read_csv("/Users/jessicadiaz/homeworks/BerkeleyHwJessica/global_air_quality (1).csv")
+
+print(air_quality_data_set['ParentLocation'].unique())
+
+print(air_quality_data_set)
+
+
+
+#1.2 
+air_quality_data_set['PM25_Value'] = air_quality_data_set['FactValueNumeric']
+print(air_quality_data_set[['FactValueNumeric', 'PM25_Value']])
+
+#1.3
+continents = ['Africa', 'Americas', 'Europe', 'Asia', 'Oceania']
+air_quality_data_set = air_quality_data_set[air_quality_data_set['ParentLocation'].isin(continents)]
+
+Average_PM25 = air_quality_data_set.groupby('ParentLocation')['PM25_Value'].mean().reset_index()
+
+Average_PM25.rename(columns={'PM25_Value': 'Average_PM25'}, inplace=True)
+
+air_quality_data_set = air_quality_data_set.merge(Average_PM25, on='ParentLocation', how='left')
+
+print(air_quality_data_set[['Location', 'ParentLocation', 'PM25_Value', 'Average_PM25']])
+
+#1.4
+Average_PM25 = air_quality_data_set.groupby('ParentLocation')['PM25_Value'].mean().reset_index()
+
+Average_PM25.rename(columns={'PM25_Value': 'Average_PM25'}, inplace=True)
+
+continent_with_most_pollution = Average_PM25.loc[Average_PM25['Average_PM25'].idxmax()]
+
+print(continent_with_most_pollution['ParentLocation'], continent_with_most_pollution ['Average_PM25'])
+#this answer does surpise me because I assumed it would Asia due to the factory manufacturing 
+
+#1.5 
+air_quality_data_set[['Location', 'ParentLocation', 'PM25_Value', 'Average_PM25']].to_csv(
+"/Users/jessicadiaz/homeworks/BerkeleyHwJessica/filtered_air_quality.csv",
+index=False
+)

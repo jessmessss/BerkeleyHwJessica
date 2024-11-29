@@ -1,0 +1,15 @@
+import seaborn as sns 
+import matplotlib.pyplot as plt 
+
+planets = sns.load_dataset('Planets')
+
+plt.figure(figsize=(10, 6))
+scatter_plot = sns.scatterplot(
+data=planets, 
+x= 'orbital_period',
+y= 'mass' ,
+hue = 'method'
+palette='viridis"
+edgecolor=None 
+)
+plt.show
